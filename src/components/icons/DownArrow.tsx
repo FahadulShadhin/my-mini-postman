@@ -1,11 +1,10 @@
-
 type DownArrowProps = {
   fill: string;
-  height: string; 
+  height: string;
   width: string;
-}
+};
 
-const DownArrow = ({fill, height, width}: DownArrowProps) => {
+const DownArrow = ({ fill, height, width }: DownArrowProps) => {
   return (
     <svg
       fill={fill}

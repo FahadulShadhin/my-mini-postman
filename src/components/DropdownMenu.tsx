@@ -2,7 +2,12 @@ import { useState, useRef, useEffect } from 'react';
 import DownArrow from './icons/DownArrow';
 
 type DropdownOption = 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE';
-type DropdownOptionColor = 'green' | 'yellow' | 'blue' | 'purple' | 'red';
+type DropdownOptionColor =
+  | 'text-green-500'
+  | 'text-yellow-500'
+  | 'text-blue-500'
+  | 'text-purple-500'
+  | 'text-red-500';
 type DropdownOptions = [DropdownOption, DropdownOptionColor];
 
 const DropdownMenu = () => {
@@ -10,17 +15,16 @@ const DropdownMenu = () => {
   const [selectedOption, setSelectedOption] = useState<null | DropdownOption>(
     null
   );
-  const [buttonColor, setButtonColor] = useState<null | DropdownOptionColor>(
-    null
-  );
+  const [buttonTextColor, setbuttonTextColor] =
+    useState<null | DropdownOptionColor>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const dropdownOptions: DropdownOptions[] = [
-    ['GET', 'green'],
-    ['POST', 'yellow'],
-    ['PUT', 'blue'],
-    ['PATCH', 'purple'],
-    ['DELETE', 'red'],
+    ['GET', 'text-green-500'],
+    ['POST', 'text-yellow-500'],
+    ['PUT', 'text-blue-500'],
+    ['PATCH', 'text-purple-500'],
+    ['DELETE', 'text-red-500'],
   ];
 
   useEffect(() => {
@@ -48,29 +52,29 @@ const DropdownMenu = () => {
     color: DropdownOptionColor
   ) => {
     setSelectedOption(option);
-    setButtonColor(color);
+    setbuttonTextColor(color);
     setIsOpen(false);
   };
 
   return (
     <div className="relative inline-block" ref={dropdownRef}>
       <button
-        className={`bg-slate-800 px-3 py-2 border border-slate-800 border-r-slate-600
-                    ${buttonColor ? `text-${buttonColor}-500` : `text-green-500`} flex`}
+        className={`bg-slate-800 px-3 py-2 border border-slate-600 border-r-0 font-bold
+                    ${buttonTextColor ? `${buttonTextColor}` : `text-green-500`} flex`}
         onClick={handleToggle}
       >
-        {selectedOption ? selectedOption : 'GET'} 
-        <div className='pl-8 pr-2 mt-2'>
+        {selectedOption ? selectedOption : 'GET'}
+        <div className="pl-8 pr-2 mt-2">
           <DownArrow fill={'#ffffff'} height={'10px'} width={'10px'} />
         </div>
       </button>
       {isOpen && (
         <ul className="absolute top-full left-0 bg-slate-800 border border-slate-600 rounded w-36 z-[9999]">
-          {dropdownOptions.map(([option, color], index) => (
+          {dropdownOptions.map(([option, textColor], index) => (
             <li
-              key={`${option}-${index}-${color}`}
-              className={`hover:bg-slate-700 px-3 py-2 cursor-pointer text-${color}-500`}
-              onClick={() => handleOptionClick(option, color)}
+              key={`${option}-${index}`}
+              className={`hover:bg-slate-700 px-3 py-2 font-bold cursor-pointer ${textColor}`}
+              onClick={() => handleOptionClick(option, textColor)}
             >
               {option}
             </li>
