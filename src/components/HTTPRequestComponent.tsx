@@ -8,9 +8,7 @@ import type {
 
 const HTTPRequestComponent = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [selectedOption, setSelectedOption] = useState<DropdownOption | null>(
-    null
-  );
+  const [selectedOption, setSelectedOption] = useState<DropdownOption>('GET');
   const [buttonTextColor, setButtonTextColor] =
     useState<DropdownOptionColor | null>(null);
   const [urlInput, setUrlInput] = useState('');
