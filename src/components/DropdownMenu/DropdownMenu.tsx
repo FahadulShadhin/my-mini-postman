@@ -1,22 +1,15 @@
-import { useState, useRef, useEffect } from 'react';
-import DownArrow from './icons/DownArrow';
+import { useRef, useEffect } from 'react';
+import DownArrow from '../icons/DownArrow';
+import type { DropdownOptions, DrondownProps } from './DropdownMenu.types';
 
-type DropdownOption = 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE';
-type DropdownOptionColor =
-  | 'text-green-500'
-  | 'text-yellow-500'
-  | 'text-blue-500'
-  | 'text-purple-500'
-  | 'text-red-500';
-type DropdownOptions = [DropdownOption, DropdownOptionColor];
-
-const DropdownMenu = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [selectedOption, setSelectedOption] = useState<null | DropdownOption>(
-    null
-  );
-  const [buttonTextColor, setbuttonTextColor] =
-    useState<null | DropdownOptionColor>(null);
+const DropdownMenu = ({
+  isOpen,
+  setIsOpen,
+  selectedOption,
+  buttonTextColor,
+  onToggle,
+  onOptionClick,
+}: DrondownProps) => {
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const dropdownOptions: DropdownOptions[] = [
@@ -43,25 +36,12 @@ const DropdownMenu = () => {
     };
   }, []);
 
-  const handleToggle = () => {
-    setIsOpen(!isOpen);
-  };
-
-  const handleOptionClick = (
-    option: DropdownOption,
-    color: DropdownOptionColor
-  ) => {
-    setSelectedOption(option);
-    setbuttonTextColor(color);
-    setIsOpen(false);
-  };
-
   return (
     <div className="relative inline-block" ref={dropdownRef}>
       <button
         className={`bg-slate-800 px-3 py-2 border border-slate-600 border-r-0 font-bold
                     ${buttonTextColor ? `${buttonTextColor}` : `text-green-500`} flex`}
-        onClick={handleToggle}
+        onClick={onToggle}
       >
         {selectedOption ? selectedOption : 'GET'}
         <div className="pl-8 pr-2 mt-2">
@@ -74,7 +54,7 @@ const DropdownMenu = () => {
             <li
               key={`${option}-${index}`}
               className={`hover:bg-slate-700 px-3 py-2 font-bold cursor-pointer ${textColor}`}
-              onClick={() => handleOptionClick(option, textColor)}
+              onClick={() => onOptionClick(option, textColor)}
             >
               {option}
             </li>
