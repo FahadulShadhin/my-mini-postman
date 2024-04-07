@@ -48,7 +48,7 @@ const HTTPRequestComponent = () => {
 
         <input
           type="url"
-          className="px-4 py-2 bg-inherit text-white focus:outline-none focus:ring-0 flex-grow border border-slate-600"
+          className="px-4 py-2 bg-inherit text-white placeholder-slate-500 focus:outline-none focus:ring-0 flex-grow border border-slate-600"
           placeholder="http://example.com"
           onChange={handleUrlInputChange}
         />
