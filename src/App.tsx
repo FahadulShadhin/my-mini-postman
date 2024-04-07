@@ -1,6 +1,6 @@
 import HeaderComponent from './components/HeaderComponent';
 import HTTPRequestComponent from './components/HTTPRequestComponent';
-import TabMenu from './TabMenu/TabMenu';
+import TabMenu from './components/TabMenu/TabMenu';
 
 function App() {
   return (

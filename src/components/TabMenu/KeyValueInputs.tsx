@@ -1,5 +1,5 @@
-import Plus from '../components/icons/Plus';
-import TrashCan from '../components/icons/TrashCan';
+import Plus from '../icons/Plus';
+import TrashCan from '../icons/TrashCan';
 import type { KeyValueInputsProps } from './TabMenu.types';
 
 const KeyValueInputs = ({
