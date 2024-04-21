@@ -61,21 +61,33 @@ const TabMenu = () => {
 
       <div className="mt-4">
         {activeTab === 0 && (
-          <KeyValueInputs
-            rows={paramRows}
-            handleChange={handleChange}
-            handleAddRow={handleAddRow}
-            handleDeleteRow={handleDeleteRow}
-          />
+          <div className="flex flex-col">
+            <span className="text-slate-500 mb-4">Query params</span>
+            <KeyValueInputs
+              rows={paramRows}
+              handleChange={handleChange}
+              handleAddRow={handleAddRow}
+              handleDeleteRow={handleDeleteRow}
+            />
+          </div>
         )}
 
         {activeTab === 1 && (
-          <KeyValueInputs
-            rows={headersRows}
-            handleChange={handleChange}
-            handleAddRow={handleAddRow}
-            handleDeleteRow={handleDeleteRow}
-          />
+          <div className="flex flex-col">
+            <span className="text-slate-500 mb-4">Headers</span>
+            <KeyValueInputs
+              rows={headersRows}
+              handleChange={handleChange}
+              handleAddRow={handleAddRow}
+              handleDeleteRow={handleDeleteRow}
+            />
+          </div>
+        )}
+
+        {activeTab === 2 && (
+          <div className="flex flex-col">
+            <span className="text-slate-500 mb-4">Body</span>
+          </div>
         )}
       </div>
     </div>
