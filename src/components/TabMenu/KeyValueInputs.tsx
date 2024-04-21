@@ -40,14 +40,14 @@ const KeyValueInputs = ({
               placeholder="Description"
             />
           </div>
-          <div className="">
+          <div className="flex justify-center items-center">
             {index === rows.length - 1 && (
-              <button className="pr-2" onClick={() => handleAddRow()}>
+              <button className="" onClick={() => handleAddRow()}>
                 <Plus fill="#ffffff" height="12px" width="12px" />
               </button>
             )}
             {rows.length !== 1 && (
-              <button className="pr-2" onClick={() => handleDeleteRow(index)}>
+              <button className="ml-2" onClick={() => handleDeleteRow(index)}>
                 <TrashCan fill="#ffffff" height="12px" width="12px" />
               </button>
             )}
