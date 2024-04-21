@@ -5,6 +5,7 @@ import type {
   DropdownOption,
   DropdownOptionColor,
 } from './DropdownMenu/DropdownMenu.types';
+import { sendHttpRequest } from '../utils/handleHttpRequest';
 
 const HTTPRequestComponent = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -31,7 +32,8 @@ const HTTPRequestComponent = () => {
   };
 
   const handleSendBtnClick = () => {
-    console.log(selectedOption, urlInput);
+    // console.log(selectedOption, urlInput);
+    sendHttpRequest(selectedOption, urlInput);
   };
 
   return (

@@ -11,7 +11,7 @@ const KeyValueInputs = ({
   return (
     <div className="flex flex-col">
       {rows.map(({ key, value, description }, index) => (
-        <div className="flex justify-between">
+        <div className="flex justify-between" key={`keyValueInput-${index}`}>
           <div
             className={`flex border ${index !== 0 && 'border-t-0'} border-slate-600 ${rows.length === 1 ? 'w-[97%]' : 'w-[95%]'}`}
             key={index}
