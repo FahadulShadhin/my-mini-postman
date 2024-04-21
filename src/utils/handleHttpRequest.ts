@@ -1,10 +1,16 @@
-import axios, { Method } from 'axios';
+import axios from 'axios';
 
-export const sendHttpRequest = async (method: Method, url: string) => {
+type RequestData = {
+  url: string;
+  method: string;
+};
+
+export const sendHttpRequest = async (url: string, selectedOption: string) => {
   try {
-    const response = await axios({ method, url });
-    console.log(response.data);
+    const requestData: RequestData = { url, method: selectedOption };
+    const response = await axios.post('/api/v1/request', requestData);
+    return response.data;
   } catch (error) {
-    console.error('Error:', error);
+    console.error(error);
   }
 };

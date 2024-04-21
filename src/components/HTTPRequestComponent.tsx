@@ -13,6 +13,7 @@ const HTTPRequestComponent = () => {
   const [buttonTextColor, setButtonTextColor] =
     useState<DropdownOptionColor | null>(null);
   const [urlInput, setUrlInput] = useState('');
+  const [responseData, setResponseData] = useState({});
 
   const handleDropdownToggle = () => {
     setIsDropdownOpen(!isDropdownOpen);
@@ -31,10 +32,13 @@ const HTTPRequestComponent = () => {
     setUrlInput(e.target.value);
   };
 
-  const handleSendBtnClick = () => {
-    // console.log(selectedOption, urlInput);
-    sendHttpRequest(selectedOption, urlInput);
+  const handleSendBtnClick = async () => {
+    console.log(selectedOption, urlInput);
+    const data = await sendHttpRequest(urlInput, selectedOption);
+    setResponseData(data);
   };
+
+  console.log(responseData);
 
   return (
     <div className="flex">
