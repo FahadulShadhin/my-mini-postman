@@ -6,7 +6,7 @@ type ButtonProps = {
 const Button = ({ text, handleClick }: ButtonProps) => {
   return (
     <button
-      className="text-white text-[18px] bg-blue-500 hover:bg-blue-700 px-8 ml-4 font-bold rounded"
+      className="transition ease-in-out delay-150 text-white text-[18px] bg-blue-500 hover:bg-blue-700 duration-150 px-8 ml-4 font-bold rounded"
       onClick={handleClick}
     >
       {text}
