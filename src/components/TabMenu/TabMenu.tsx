@@ -1,15 +1,14 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import type { TabMenuOptions, Row } from './TabMenu.types';
 import KeyValueInputs from './KeyValueInputs';
+import { TabMenuContext } from '../../context/TabMenuContext';
+import { TabMenuContextType } from '../../context/TabMenuContext.type';
 
 const TabMenu = () => {
   const [activeTab, setActiveTab] = useState(0);
-  const [paramRows, setParamRows] = useState<Row[]>([
-    { key: '', value: '', description: '' },
-  ]);
-  const [headersRows, setHeadersRows] = useState<Row[]>([
-    { key: '', value: '', description: '' },
-  ]);
+  const { paramRows, setParamRows, headersRows, setHeadersRows } = useContext(
+    TabMenuContext
+  ) as TabMenuContextType;
 
   const tabMenuOptions: TabMenuOptions[] = ['Params', 'Headers', 'Body'];
 
