@@ -17,7 +17,8 @@ const BodyInput = ({ jsonValue, handleChange }: BodyInputProps) => {
           resize: 'vertical',
           backgroundColor: 'rgb(30 41 59)',
           border: "1px solid rgb(100 116 139)",
-          fontSize: "1rem",
+          minHeight: "300px",
+          fontSize: "0.875rem",
           fontFamily:
             'ui-monospace,SFMono-Regular,SF Mono,Consolas,Liberation Mono,Menlo,monospace',
         }}
