@@ -1,4 +1,5 @@
 import type { BodyInputProps } from './TabMenu.types';
+import CodeEditor from '@uiw/react-textarea-code-editor';
 
 const BodyInput = ({ jsonValue, handleChange }: BodyInputProps) => {
   return (
@@ -6,13 +7,20 @@ const BodyInput = ({ jsonValue, handleChange }: BodyInputProps) => {
       <label htmlFor="jsonInput" className="text-slate-500 mb-4">
         Body
       </label>
-      <textarea
+      <CodeEditor
         id="jsonInput"
+        language="json"
         value={jsonValue}
         onChange={(e) => handleChange(e.target.value)}
-        rows={20}
-        cols={50}
-        style={{ resize: 'vertical' }}
+        padding={15}
+        style={{
+          resize: 'vertical',
+          backgroundColor: 'rgb(30 41 59)',
+          border: "1px solid rgb(100 116 139)",
+          fontSize: "1rem",
+          fontFamily:
+            'ui-monospace,SFMono-Regular,SF Mono,Consolas,Liberation Mono,Menlo,monospace',
+        }}
       />
     </>
   );
