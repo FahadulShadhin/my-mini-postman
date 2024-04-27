@@ -1,8 +1,6 @@
 import { createContext, useState } from 'react';
 import { Row } from '../components/TabMenu/TabMenu.types';
-import { TabMenuContextType, TabMenuContextProviderProps } from './TabMenuContext.type';
-
-
+import type { TabMenuContextType, TabMenuContextProviderProps } from './TabMenuContext.type';
 
 export const TabMenuContext = createContext<TabMenuContextType | null>(null);
 

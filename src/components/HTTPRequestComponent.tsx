@@ -1,13 +1,13 @@
 import Button from './Button';
 import DropdownMenu from './DropdownMenu/DropdownMenu';
 import React, { useContext, useState } from 'react';
-import type {
-  DropdownOption,
-  DropdownOptionColor,
-} from './DropdownMenu/DropdownMenu.types';
 import { sendHttpRequest } from '../utils/handleHttpRequest';
 import { TabMenuContext } from '../context/TabMenuContext';
-import { TabMenuContextType } from '../context/TabMenuContext.type';
+import type {
+DropdownOption,
+  DropdownOptionColor,
+} from './DropdownMenu/DropdownMenu.types';
+import type { TabMenuContextType } from '../context/TabMenuContext.type';
 
 const HTTPRequestComponent = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);

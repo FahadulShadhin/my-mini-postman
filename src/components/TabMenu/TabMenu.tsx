@@ -1,8 +1,8 @@
 import { useContext, useState } from 'react';
-import type { TabMenuOptions, Row } from './TabMenu.types';
 import KeyValueInputs from './KeyValueInputs';
 import { TabMenuContext } from '../../context/TabMenuContext';
-import { TabMenuContextType } from '../../context/TabMenuContext.type';
+import type { TabMenuContextType } from '../../context/TabMenuContext.type';
+import type { TabMenuOptions, Row } from './TabMenu.types';
 
 const TabMenu = () => {
   const [activeTab, setActiveTab] = useState(0);
