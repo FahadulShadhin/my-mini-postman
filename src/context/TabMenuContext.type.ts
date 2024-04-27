@@ -8,6 +8,6 @@ export type TabMenuContextProviderProps = {
 export type TabMenuContextType = {
   paramRows: Row[];
   setParamRows: (paramRows: Row[]) => void;
-  headersRows: Row[];
-  setHeadersRows: (headersRows: Row[]) => void;
+  headerRows: Row[];
+  setheaderRows: (headerRows: Row[]) => void;
 };

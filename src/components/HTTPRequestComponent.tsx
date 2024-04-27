@@ -17,7 +17,7 @@ const HTTPRequestComponent = () => {
   const [urlInput, setUrlInput] = useState('');
   const [responseData, setResponseData] = useState({});
 
-  const { paramRows, headersRows } = useContext(
+  const { paramRows, headerRows } = useContext(
     TabMenuContext
   ) as TabMenuContextType;
 
@@ -46,7 +46,7 @@ const HTTPRequestComponent = () => {
 
   console.log(responseData);
   console.log('PARAMS:', paramRows);
-  console.log('HEADERS:', headersRows);
+  console.log('HEADERS:', headerRows);
 
   return (
     <div className="flex">

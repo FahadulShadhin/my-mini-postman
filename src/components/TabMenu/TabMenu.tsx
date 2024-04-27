@@ -6,7 +6,7 @@ import type { TabMenuOptions, Row } from './TabMenu.types';
 
 const TabMenu = () => {
   const [activeTab, setActiveTab] = useState(0);
-  const { paramRows, setParamRows, headersRows, setHeadersRows } = useContext(
+  const { paramRows, setParamRows, headerRows, setheaderRows } = useContext(
     TabMenuContext
   ) as TabMenuContextType;
 
@@ -16,7 +16,7 @@ const TabMenu = () => {
     if (activeTab === 0)
       setParamRows([...paramRows, { key: '', value: '', description: '' }]);
     else
-      setHeadersRows([...headersRows, { key: '', value: '', description: '' }]);
+      setheaderRows([...headerRows, { key: '', value: '', description: '' }]);
   };
 
   const handleDeleteRow = (index: number) => {
@@ -25,9 +25,9 @@ const TabMenu = () => {
       updatedRows.splice(index, 1);
       setParamRows(updatedRows);
     } else {
-      const updatedRows = [...headersRows];
+      const updatedRows = [...headerRows];
       updatedRows.splice(index, 1);
-      setHeadersRows(updatedRows);
+      setheaderRows(updatedRows);
     }
   };
 
@@ -37,9 +37,9 @@ const TabMenu = () => {
       updatedRows[index][field] = value;
       setParamRows(updatedRows);
     } else {
-      const updatedRows = [...headersRows];
+      const updatedRows = [...headerRows];
       updatedRows[index][field] = value;
-      setHeadersRows(updatedRows);
+      setheaderRows(updatedRows);
     }
   };
 
@@ -75,7 +75,7 @@ const TabMenu = () => {
           <div className="flex flex-col">
             <span className="text-slate-500 mb-4">Headers</span>
             <KeyValueInputs
-              rows={headersRows}
+              rows={headerRows}
               handleChange={handleChange}
               handleAddRow={handleAddRow}
               handleDeleteRow={handleDeleteRow}

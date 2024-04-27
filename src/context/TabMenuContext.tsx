@@ -10,7 +10,7 @@ export const TabMenuContextProvider = ({
   const [paramRows, setParamRows] = useState<Row[]>([
     { key: '', value: '', description: '' },
   ]);
-  const [headersRows, setHeadersRows] = useState<Row[]>([
+  const [headerRows, setheaderRows] = useState<Row[]>([
     { key: '', value: '', description: '' },
   ]);
 
@@ -19,8 +19,8 @@ export const TabMenuContextProvider = ({
       value={{
         paramRows,
         setParamRows,
-        headersRows,
-        setHeadersRows,
+        headerRows,
+        setheaderRows,
       }}
     >
       {children}
