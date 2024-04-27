@@ -39,19 +39,6 @@ const HTTPRequestComponent = () => {
   };
 
   const handleSendBtnClick = async () => {
-    // const headers: Record<string, string> = {};
-    // const params: Record<string, string> = {};
-    
-    // for (let header of headerRows) {
-    //   headers[header.key] = header.value;
-    // }
-
-    // for (let param of paramRows) {
-    //   params[param.key] = param.value;
-    // }
-
-    // if (!Object.keys(headers).length) console.log(headers, params);
-
     const data = await sendHttpRequest(
       urlInput,
       selectedOption,
@@ -62,10 +49,7 @@ const HTTPRequestComponent = () => {
     setResponseData(data);
   };
 
-  // console.log(responseData);
-  // console.log('PARAMS:', paramRows);
-  // console.log('HEADERS:', headerRows);
-  // console.log('JSONBODY:', bodyInput);
+  console.log(responseData);
 
   return (
     <div className="flex">
