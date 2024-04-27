@@ -17,7 +17,7 @@ const HTTPRequestComponent = () => {
   const [urlInput, setUrlInput] = useState('');
   const [responseData, setResponseData] = useState({});
 
-  const { paramRows, headerRows, jsonInput } = useContext(
+  const { paramRows, headerRows, bodyInput } = useContext(
     TabMenuContext
   ) as TabMenuContextType;
 
@@ -39,15 +39,33 @@ const HTTPRequestComponent = () => {
   };
 
   const handleSendBtnClick = async () => {
-    console.log(selectedOption, urlInput);
-    const data = await sendHttpRequest(urlInput, selectedOption);
+    // const headers: Record<string, string> = {};
+    // const params: Record<string, string> = {};
+    
+    // for (let header of headerRows) {
+    //   headers[header.key] = header.value;
+    // }
+
+    // for (let param of paramRows) {
+    //   params[param.key] = param.value;
+    // }
+
+    // if (!Object.keys(headers).length) console.log(headers, params);
+
+    const data = await sendHttpRequest(
+      urlInput,
+      selectedOption,
+      headerRows,
+      paramRows,
+      bodyInput,
+    );
     setResponseData(data);
   };
 
-  console.log(responseData);
-  console.log('PARAMS:', paramRows);
-  console.log('HEADERS:', headerRows);
-  console.log('JSONBODY:', jsonInput);
+  // console.log(responseData);
+  // console.log('PARAMS:', paramRows);
+  // console.log('HEADERS:', headerRows);
+  // console.log('JSONBODY:', bodyInput);
 
   return (
     <div className="flex">

@@ -4,11 +4,11 @@ import CodeEditor from '@uiw/react-textarea-code-editor';
 const BodyInput = ({ jsonValue, handleChange }: BodyInputProps) => {
   return (
     <>
-      <label htmlFor="jsonInput" className="text-slate-500 mb-4">
+      <label htmlFor="bodyInput" className="text-slate-500 mb-4">
         Body
       </label>
       <CodeEditor
-        id="jsonInput"
+        id="bodyInput"
         language="json"
         value={jsonValue}
         onChange={(e) => handleChange(e.target.value)}
@@ -16,9 +16,9 @@ const BodyInput = ({ jsonValue, handleChange }: BodyInputProps) => {
         style={{
           resize: 'vertical',
           backgroundColor: 'rgb(30 41 59)',
-          border: "1px solid rgb(100 116 139)",
-          minHeight: "300px",
-          fontSize: "0.875rem",
+          border: '1px solid rgb(100 116 139)',
+          minHeight: '300px',
+          fontSize: '0.875rem',
           fontFamily:
             'ui-monospace,SFMono-Regular,SF Mono,Consolas,Liberation Mono,Menlo,monospace',
         }}

@@ -15,5 +15,5 @@ export type KeyValueInputsProps = {
 
 export type BodyInputProps = {
   jsonValue: string;
-  handleChange: (jsonInput: string) => void;
+  handleChange: (bodyInput: string) => void;
 };

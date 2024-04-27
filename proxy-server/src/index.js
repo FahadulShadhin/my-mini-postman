@@ -9,11 +9,10 @@ app.use(cors());
 app.use(express.json());
 
 app.post('/api/v1/request', async (req, res) => {
-  const { url, method } = req.body;
-  console.log(url, method);
-
-  const data = await sendHttpRequest(method, url);
-
+  // headersRow and paramsRow are array of headers and params
+  // before making the axios request we are converting the array in object of key-value pairs
+  const { url, method, headersRow, paramsRow, body } = req.body;
+  const data = await sendHttpRequest(method, url, headersRow, paramsRow, body);
   res.status(200).json(data);
 });
 

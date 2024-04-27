@@ -12,8 +12,8 @@ const TabMenu = () => {
     setParamRows,
     headerRows,
     setheaderRows,
-    jsonInput,
-    setJsonInput,
+    bodyInput,
+    setBodyInput,
   } = useContext(TabMenuContext) as TabMenuContextType;
 
   const tabMenuOptions: TabMenuOptions[] = ['Params', 'Headers', 'Body'];
@@ -49,8 +49,8 @@ const TabMenu = () => {
     }
   };
 
-  const handleBodyChange = (jsonInput: string) => {
-    setJsonInput(jsonInput);
+  const handleBodyChange = (bodyInput: string) => {
+    setBodyInput(bodyInput);
   };
 
   return (
@@ -95,7 +95,7 @@ const TabMenu = () => {
 
         {activeTab === 2 && (
           <div className="flex flex-col">
-            <BodyInput jsonValue={jsonInput} handleChange={handleBodyChange} />
+            <BodyInput jsonValue={bodyInput} handleChange={handleBodyChange} />
           </div>
         )}
       </div>

@@ -18,7 +18,7 @@ export const TabMenuContextProvider = ({
     { key: '', value: '', description: '' },
   ]);
 
-  const [jsonInput, setJsonInput] = useState<string>('');
+  const [bodyInput, setBodyInput] = useState<string>('');
 
   return (
     <TabMenuContext.Provider
@@ -27,8 +27,8 @@ export const TabMenuContextProvider = ({
         setParamRows,
         headerRows,
         setheaderRows,
-        jsonInput,
-        setJsonInput,
+        bodyInput,
+        setBodyInput,
       }}
     >
       {children}
