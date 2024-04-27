@@ -4,7 +4,7 @@ import React, { useContext, useState } from 'react';
 import { sendHttpRequest } from '../utils/handleHttpRequest';
 import { TabMenuContext } from '../context/TabMenuContext';
 import type {
-DropdownOption,
+  DropdownOption,
   DropdownOptionColor,
 } from './DropdownMenu/DropdownMenu.types';
 import type { TabMenuContextType } from '../context/TabMenuContext.type';
@@ -17,7 +17,7 @@ const HTTPRequestComponent = () => {
   const [urlInput, setUrlInput] = useState('');
   const [responseData, setResponseData] = useState({});
 
-  const { paramRows, headerRows } = useContext(
+  const { paramRows, headerRows, jsonInput } = useContext(
     TabMenuContext
   ) as TabMenuContextType;
 
@@ -47,6 +47,7 @@ const HTTPRequestComponent = () => {
   console.log(responseData);
   console.log('PARAMS:', paramRows);
   console.log('HEADERS:', headerRows);
+  console.log('JSONBODY:', jsonInput);
 
   return (
     <div className="flex">

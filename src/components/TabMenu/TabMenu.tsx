@@ -1,14 +1,20 @@
 import { useContext, useState } from 'react';
 import KeyValueInputs from './KeyValueInputs';
+import BodyInput from './BodyInput';
 import { TabMenuContext } from '../../context/TabMenuContext';
 import type { TabMenuContextType } from '../../context/TabMenuContext.type';
 import type { TabMenuOptions, Row } from './TabMenu.types';
 
 const TabMenu = () => {
   const [activeTab, setActiveTab] = useState(0);
-  const { paramRows, setParamRows, headerRows, setheaderRows } = useContext(
-    TabMenuContext
-  ) as TabMenuContextType;
+  const {
+    paramRows,
+    setParamRows,
+    headerRows,
+    setheaderRows,
+    jsonInput,
+    setJsonInput,
+  } = useContext(TabMenuContext) as TabMenuContextType;
 
   const tabMenuOptions: TabMenuOptions[] = ['Params', 'Headers', 'Body'];
 
@@ -41,6 +47,10 @@ const TabMenu = () => {
       updatedRows[index][field] = value;
       setheaderRows(updatedRows);
     }
+  };
+
+  const handleBodyChange = (jsonInput: string) => {
+    setJsonInput(jsonInput);
   };
 
   return (
@@ -85,7 +95,7 @@ const TabMenu = () => {
 
         {activeTab === 2 && (
           <div className="flex flex-col">
-            <span className="text-slate-500 mb-4">Body</span>
+            <BodyInput jsonValue={jsonInput} handleChange={handleBodyChange} />
           </div>
         )}
       </div>

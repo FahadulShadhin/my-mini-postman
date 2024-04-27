@@ -1,6 +1,9 @@
 import { createContext, useState } from 'react';
 import { Row } from '../components/TabMenu/TabMenu.types';
-import type { TabMenuContextType, TabMenuContextProviderProps } from './TabMenuContext.type';
+import type {
+  TabMenuContextType,
+  TabMenuContextProviderProps,
+} from './TabMenuContext.type';
 
 export const TabMenuContext = createContext<TabMenuContextType | null>(null);
 
@@ -10,9 +13,12 @@ export const TabMenuContextProvider = ({
   const [paramRows, setParamRows] = useState<Row[]>([
     { key: '', value: '', description: '' },
   ]);
+
   const [headerRows, setheaderRows] = useState<Row[]>([
     { key: '', value: '', description: '' },
   ]);
+
+  const [jsonInput, setJsonInput] = useState<string>('');
 
   return (
     <TabMenuContext.Provider
@@ -21,6 +27,8 @@ export const TabMenuContextProvider = ({
         setParamRows,
         headerRows,
         setheaderRows,
+        jsonInput,
+        setJsonInput,
       }}
     >
       {children}

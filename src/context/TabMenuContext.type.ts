@@ -10,4 +10,6 @@ export type TabMenuContextType = {
   setParamRows: (paramRows: Row[]) => void;
   headerRows: Row[];
   setheaderRows: (headerRows: Row[]) => void;
+  jsonInput: string;
+  setJsonInput: (jsonInput: string) => void;
 };

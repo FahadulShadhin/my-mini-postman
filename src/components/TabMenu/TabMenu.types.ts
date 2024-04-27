@@ -12,3 +12,8 @@ export type KeyValueInputsProps = {
   handleAddRow: () => void;
   handleDeleteRow: (index: number) => void;
 };
+
+export type BodyInputProps = {
+  jsonValue: string;
+  handleChange: (jsonInput: string) => void;
+};
