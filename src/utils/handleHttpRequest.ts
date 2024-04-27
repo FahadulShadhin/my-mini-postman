@@ -24,7 +24,6 @@ export const sendHttpRequest = async (
       body,
     };
     const response = await axios.post('/api/v1/request', requestData);
-    console.log(response);
     return response.data;
   } catch (error) {
     console.error(error);
