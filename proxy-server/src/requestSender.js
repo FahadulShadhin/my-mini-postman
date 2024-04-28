@@ -1,9 +1,9 @@
 import axios from 'axios';
 
 const isValidHeaderOrParamkey = (val) =>
-  val.key === 'string' &&
+  typeof val.key === 'string' &&
   val.key.trim() !== '' &&
-  typeof header.value === 'string';
+  typeof val.value === 'string';
 
 export const sendHttpRequest = async (
   method,
@@ -41,18 +41,17 @@ export const sendHttpRequest = async (
       headers: response.headers,
       data: response.data,
     };
-    console.log(resToReturn);
     return resToReturn;
   } catch (error) {
     // when getting error status we don't want the server to through error
     // instead the error response is sent to frontend
+    console.log(error);
     const resToReturn = {
-      status: error.response.status,
-      statusText: error.response.statusText,
-      headers: error.response.headers,
-      data: error.response.data,
+      status: error?.response?.status,
+      statusText: error?.response?.statusText,
+      headers: error?.response?.headers,
+      data: error?.response?.data,
     };
-    console.log(resToReturn);
     return resToReturn;
   }
 };

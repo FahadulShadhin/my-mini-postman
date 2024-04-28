@@ -1,8 +1,15 @@
+import React, { useContext, useState } from 'react';
+
+// components
 import Button from './Button';
 import DropdownMenu from './DropdownMenu/DropdownMenu';
-import React, { useContext, useState } from 'react';
 import { sendHttpRequest } from '../utils/handleHttpRequest';
 import { TabMenuContext } from '../context/TabMenuContext';
+
+// utils
+import { isValidRequestData } from '../utils/commonUtils';
+
+// types
 import type {
   DropdownOption,
   DropdownOptionColor,
@@ -39,14 +46,20 @@ const HTTPRequestComponent = () => {
   };
 
   const handleSendBtnClick = async () => {
-    const data = await sendHttpRequest(
-      urlInput,
-      selectedOption,
-      headerRows,
-      paramRows,
-      bodyInput,
-    );
-    setResponseData(data);
+    // console.log(headerRows, paramRows)
+    if (isValidRequestData(urlInput, bodyInput)) {
+      const data = await sendHttpRequest(
+        urlInput,
+        selectedOption,
+        headerRows,
+        paramRows,
+        bodyInput
+      );
+      console.log(data);
+      setResponseData(data);
+    } else {
+      alert("not valid json!")
+    }
   };
 
   console.log(responseData);

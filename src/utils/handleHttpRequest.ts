@@ -1,26 +1,27 @@
 import axios from 'axios';
+import { Row } from '../components/TabMenu/TabMenu.types';
 
 type RequestData = {
   url: string;
   method: string;
-  headers: {};
-  params: {};
-  body: {};
+  headerRows: Row[];
+  paramRows: Row[];
+  body: string;
 };
 
 export const sendHttpRequest = async (
   url: string,
   selectedOption: string,
-  headers: {},
-  params: {},
-  body: {}
+  headerRows: Row[],
+  paramRows: Row[],
+  body: string
 ) => {
   try {
     const requestData: RequestData = {
       url,
       method: selectedOption,
-      headers,
-      params,
+      headerRows,
+      paramRows,
       body,
     };
     const response = await axios.post('/api/v1/request', requestData);
