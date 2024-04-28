@@ -2,7 +2,7 @@ import { useContext, useState } from 'react';
 import KeyValueInputs from './KeyValueInputs';
 import BodyInput from './BodyInput';
 import { TabMenuContext } from '../../context/TabMenuContext';
-import type { TabMenuContextType } from '../../context/TabMenuContext.type';
+import type { TabMenuContextType } from '../../context/TabMenuContext.types';
 import type { TabMenuOptions, Row } from './TabMenu.types';
 
 const TabMenu = () => {

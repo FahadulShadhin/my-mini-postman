@@ -14,7 +14,7 @@ import type {
   DropdownOption,
   DropdownOptionColor,
 } from './DropdownMenu/DropdownMenu.types';
-import type { TabMenuContextType } from '../context/TabMenuContext.type';
+import type { TabMenuContextType } from '../context/TabMenuContext.types';
 
 const HTTPRequestComponent = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);

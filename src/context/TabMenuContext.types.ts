@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row } from '../components/TabMenu/TabMenu.types';
+import type { Row } from '../components/TabMenu/TabMenu.types';
 
 export type TabMenuContextProviderProps = {
   children: React.ReactNode;

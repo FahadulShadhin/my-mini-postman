@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { Row } from '../components/TabMenu/TabMenu.types';
+import type { Row } from '../components/TabMenu/TabMenu.types';
 
 type RequestData = {
   url: string;
