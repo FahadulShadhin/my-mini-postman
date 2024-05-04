@@ -16,17 +16,15 @@ import type {
 } from './DropdownMenu/DropdownMenu.types';
 import type { TabMenuContextType } from '../context/TabMenuContext.types';
 
-const HTTPRequestComponent = () => {
+const RequestComponent = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState<DropdownOption>('GET');
   const [buttonTextColor, setButtonTextColor] =
     useState<DropdownOptionColor | null>(null);
   const [urlInput, setUrlInput] = useState('');
-  const [responseData, setResponseData] = useState({});
 
-  const { paramRows, headerRows, bodyInput } = useContext(
-    TabMenuContext
-  ) as TabMenuContextType;
+  const { paramRows, headerRows, bodyInput, responseData, setResponseData } =
+    useContext(TabMenuContext) as TabMenuContextType;
 
   const handleDropdownToggle = () => {
     setIsDropdownOpen(!isDropdownOpen);
@@ -56,7 +54,7 @@ const HTTPRequestComponent = () => {
         bodyInput
       );
       console.log(data);
-      setResponseData(data);
+      setResponseData(data.data);
     } else {
       alert('not valid json!');
     }
@@ -89,4 +87,4 @@ const HTTPRequestComponent = () => {
   );
 };
 
-export default HTTPRequestComponent;
+export default RequestComponent;

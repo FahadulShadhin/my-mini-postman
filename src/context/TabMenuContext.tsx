@@ -13,12 +13,11 @@ export const TabMenuContextProvider = ({
   const [paramRows, setParamRows] = useState<Row[]>([
     { key: '', value: '', description: '' },
   ]);
-
   const [headerRows, setheaderRows] = useState<Row[]>([
     { key: '', value: '', description: '' },
   ]);
-
   const [bodyInput, setBodyInput] = useState<string>('');
+  const [responseData, setResponseData] = useState<object>({});
 
   return (
     <TabMenuContext.Provider
@@ -29,6 +28,8 @@ export const TabMenuContextProvider = ({
         setheaderRows,
         bodyInput,
         setBodyInput,
+        responseData,
+        setResponseData,
       }}
     >
       {children}

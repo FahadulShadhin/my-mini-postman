@@ -12,4 +12,6 @@ export type TabMenuContextType = {
   setheaderRows: (headerRows: Row[]) => void;
   bodyInput: string;
   setBodyInput: (bodyInput: string) => void;
+  responseData: object;
+  setResponseData: (responseData: object) => void;
 };

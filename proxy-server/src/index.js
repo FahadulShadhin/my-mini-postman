@@ -12,13 +12,8 @@ app.post('/api/v1/request', async (req, res) => {
   // headerRows and paramRows are array of headers and params
   // before making the axios request we are converting the array in object of key-value pairs
   const { url, method, headerRows, paramRows, body } = req.body;
-  const data = await sendHttpRequest(
-    method,
-    url,
-    headerRows,
-    paramRows,
-    JSON.parse(body)
-  );
+
+  const data = await sendHttpRequest(method, url, headerRows, paramRows, body);
   res.status(200).json(data);
 });
 

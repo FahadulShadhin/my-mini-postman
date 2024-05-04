@@ -27,12 +27,14 @@ export const sendHttpRequest = async (
       }
     }
 
+    const requestBody = body.trim() !== '' ? JSON.parse(body) : body;
+
     const response = await axios({
       url: url,
       method: method,
       params: params,
       headers: headers,
-      data: body,
+      data: requestBody,
     });
 
     const resToReturn = {
@@ -45,13 +47,20 @@ export const sendHttpRequest = async (
   } catch (error) {
     // when getting error status we don't want the server to through error
     // instead the error response is sent to frontend
-    console.log(error);
-    const resToReturn = {
-      status: error?.response?.status,
-      statusText: error?.response?.statusText,
-      headers: error?.response?.headers,
-      data: error?.response?.data,
-    };
+    let resToReturn;
+
+    if (error instanceof SyntaxError) {
+      resToReturn = {
+        data: error.toString(),
+      };
+    } else {
+      resToReturn = {
+        status: error?.response?.status,
+        statusText: error?.response?.statusText,
+        headers: error?.response?.headers,
+        data: error?.response?.data,
+      };
+    }
     return resToReturn;
   }
 };

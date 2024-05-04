@@ -1,5 +1,6 @@
 import HeaderComponent from './components/HeaderComponent';
-import HTTPRequestComponent from './components/HTTPRequestComponent';
+import RequestComponent from './components/RequestComponent';
+import ResponseComponent from './components/ResponseComponent';
 import TabMenu from './components/TabMenu/TabMenu';
 import { TabMenuContextProvider } from './context/TabMenuContext';
 
@@ -8,8 +9,9 @@ function App() {
     <div className="bg-slate-800 h-screen">
       <TabMenuContextProvider>
         <HeaderComponent />
-        <HTTPRequestComponent />
+        <RequestComponent />
         <TabMenu />
+        <ResponseComponent />
       </TabMenuContextProvider>
     </div>
   );
