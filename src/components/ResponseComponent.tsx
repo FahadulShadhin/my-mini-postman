@@ -15,8 +15,7 @@ const ResponseComponent = () => {
         readOnly
         id="bodyInput"
         language="json"
-        value={JSON.stringify(responseData)}
-        // onChange={(e) => handleChange(e.target.value)}
+        value={JSON.stringify(responseData, null, 2)}
         padding={15}
         style={{
           resize: 'vertical',
