@@ -28,11 +28,11 @@ export const sendHttpRequest = async (
     }
 
     const response = await axios({
-      method,
-      url,
-      headers,
-      params,
-      body,
+      url: url,
+      method: method,
+      params: params,
+      headers: headers,
+      data: body,
     });
 
     const resToReturn = {

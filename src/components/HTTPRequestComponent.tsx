@@ -58,7 +58,7 @@ const HTTPRequestComponent = () => {
       console.log(data);
       setResponseData(data);
     } else {
-      alert("not valid json!")
+      alert('not valid json!');
     }
   };
 
