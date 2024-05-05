@@ -1,14 +1,9 @@
 import React, { useContext, useState } from 'react';
-
 // components
 import Button from './Button';
 import DropdownMenu from './DropdownMenu/DropdownMenu';
 import { sendHttpRequest } from '../utils/handleHttpRequest';
 import { TabMenuContext } from '../context/TabMenuContext';
-
-// utils
-import { isValidRequestData } from '../utils/commonUtils';
-
 // types
 import type {
   DropdownOption,
