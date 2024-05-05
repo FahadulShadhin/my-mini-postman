@@ -5,6 +5,10 @@ export type TabMenuContextProviderProps = {
   children: React.ReactNode;
 };
 
+export type ResponseHeaders = {
+  [key: string]: string;
+};
+
 export type TabMenuContextType = {
   paramRows: Row[];
   setParamRows: (paramRows: Row[]) => void;
@@ -14,4 +18,6 @@ export type TabMenuContextType = {
   setBodyInput: (bodyInput: string) => void;
   responseData: object;
   setResponseData: (responseData: object) => void;
+  responseHeaders: ResponseHeaders;
+  setResponseHeaders: (responseHeaders: ResponseHeaders) => void;
 };

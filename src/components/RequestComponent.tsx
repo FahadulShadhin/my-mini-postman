@@ -23,8 +23,13 @@ const RequestComponent = () => {
     useState<DropdownOptionColor | null>(null);
   const [urlInput, setUrlInput] = useState('');
 
-  const { paramRows, headerRows, bodyInput, responseData, setResponseData } =
-    useContext(TabMenuContext) as TabMenuContextType;
+  const {
+    paramRows,
+    headerRows,
+    bodyInput,
+    setResponseData,
+    setResponseHeaders,
+  } = useContext(TabMenuContext) as TabMenuContextType;
 
   const handleDropdownToggle = () => {
     setIsDropdownOpen(!isDropdownOpen);
@@ -44,23 +49,17 @@ const RequestComponent = () => {
   };
 
   const handleSendBtnClick = async () => {
-    // console.log(headerRows, paramRows)
-    if (isValidRequestData(urlInput, bodyInput)) {
-      const data = await sendHttpRequest(
-        urlInput,
-        selectedOption,
-        headerRows,
-        paramRows,
-        bodyInput
-      );
-      console.log(data);
-      setResponseData(data.data);
-    } else {
-      alert('not valid json!');
-    }
+    const data = await sendHttpRequest(
+      urlInput,
+      selectedOption,
+      headerRows,
+      paramRows,
+      bodyInput
+    );
+    console.log(data);
+    setResponseData(data.data);
+    setResponseHeaders(data.headers);
   };
-
-  console.log(responseData);
 
   return (
     <div className="flex">

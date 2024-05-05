@@ -54,7 +54,7 @@ const TabMenu = () => {
   };
 
   return (
-    <div className="mx-auto sm:w-full md:w-4/5 lg:w-2/3">
+    <div className="mx-auto sm:w-full md:w-4/5 lg:w-2/3 h-[27rem] overflow-auto">
       <div className="flex">
         {tabMenuOptions.map((option, index) => (
           <button
@@ -71,7 +71,6 @@ const TabMenu = () => {
       <div className="mt-4">
         {activeTab === 0 && (
           <div className="flex flex-col">
-            <span className="text-slate-500 mb-4">Query params</span>
             <KeyValueInputs
               rows={paramRows}
               handleChange={handleChange}
@@ -83,7 +82,6 @@ const TabMenu = () => {
 
         {activeTab === 1 && (
           <div className="flex flex-col">
-            <span className="text-slate-500 mb-4">Headers</span>
             <KeyValueInputs
               rows={headerRows}
               handleChange={handleChange}
