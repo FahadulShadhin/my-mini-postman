@@ -58,7 +58,7 @@ const ResponseComponent = () => {
         )}
 
         {activeTab === 1 && (
-          <div className="text-white h-[300px]">
+          <div className="text-white h-[300px] overflow-auto">
             {responseHeaders &&
               Object.keys(responseHeaders).map((key, index) => (
                 <div
